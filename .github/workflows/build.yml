@@ -35,5 +35,6 @@ jobs:
           imageName: ghcr.io/aliuq/devcontainer
           platform: linux/amd64,linux/arm64
           imageTag: ${{ matrix.image }}
-          subFolder: src/base
+          subFolder: src/${{ matrix.image }}
+          cacheFrom: ghcr.io/aliuq/devcontainer:${{ matrix.image }}
           push: never
