@@ -37,4 +37,4 @@ jobs:
           imageTag: ${{ matrix.image }}
           subFolder: src/${{ matrix.image }}
           cacheFrom: ghcr.io/aliuq/devcontainer:${{ matrix.image }}
-          push: never
+          push: always
