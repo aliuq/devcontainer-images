@@ -41,7 +41,8 @@ jobs:
           script: |
             const image = '${{ matrix.image }}'
 
-            const tags = image === 'base' ? 'base,ubuntu' : image
+            // const tags = image === 'base' ? 'base,ubuntu' : image
+            const tags = image === 'base' ? 'base-dev' : image
 
             core.setOutput('tags', tags)
 
@@ -53,20 +54,19 @@ jobs:
           platform: linux/amd64
           # platform: linux/amd64,linux/arm64
           subFolder: src/${{ matrix.image }}
-          cacheFrom: ghcr.io/aliuq/devcontainer:${{ matrix.image }}
-          push: never
-          # push: always
+          # cacheFrom: ghcr.io/aliuq/devcontainer:${{ matrix.image }}
+          # push: never
+          push: always
 
       - name: Post build
         run: |
           # /usr/bin/skopeo copy --all oci-archive:/tmp/output.tar:base docker://ghcr.io/aliuq/devcontainer:base
           # /usr/bin/skopeo copy --all oci-archive:/tmp/output.tar:ubuntu docker://ghcr.io/aliuq/devcontainer:ubuntu
 
-          echo "(*) Pushing to Docker Hub ..."
-          echo "Found tags: ${{ steps.prepare.outputs.tags }}"
+          echo "(*) Pushing to Docker Hub (${{ steps.prepare.outputs.tags }}) ..."
 
           tags="${{ steps.prepare.outputs.tags }}"
           for tag in ${tags//,/ }; do
             echo " - Pushing tag: 'docker.io/aliuq/devcontainer:$tag'"
-            # /usr/bin/skopeo copy --all oci-archive:/tmp/output.tar:$tag docker://docker.io/aliuq/devcontainer:$tag
+            /usr/bin/skopeo copy --all oci-archive:/tmp/output.tar:$tag docker://docker.io/aliuq/devcontainer:$tag
           done
