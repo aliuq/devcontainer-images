@@ -50,7 +50,7 @@ jobs:
 
             core.setOutput('tags', tags)
 
-      - name: Build to ghcr.io
+      - name: Build
         uses: devcontainers/ci@v0.3
         with:
           imageName: ghcr.io/aliuq/devcontainer
@@ -61,10 +61,13 @@ jobs:
           cacheFrom: ghcr.io/aliuq/devcontainer:${{ matrix.image }}
           push: never
           # push: always
-          runCmd: |
-            echo "(*) Build completed for ${{ matrix.image }}"
 
-            /usr/bin/skopeo --help
+      - name: Post build
+        run: |
+          echo "(*) Build completed for ${{ matrix.image }}"
+          /usr/bin/skopeo --help
+
+          ls /tmp/output.tar
 
       # - name: Build to docker.io
       #   uses: devcontainers/ci@v0.3
