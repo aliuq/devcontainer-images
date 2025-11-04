@@ -65,7 +65,8 @@ jobs:
           echo "(*) Pushing to Docker Hub ..."
           echo "Found tags: ${{ steps.prepare.outputs.tags }}"
 
-          for tag in ${{ steps.prepare.outputs.tags//,/ }}; do
+          tags="${{ steps.prepare.outputs.tags }}"
+          for tag in ${tags//,/ }; do
             echo " - Pushing tag: 'docker.io/aliuq/devcontainer:$tag'"
             # /usr/bin/skopeo copy --all oci-archive:/tmp/output.tar:$tag docker://docker.io/aliuq/devcontainer:$tag
           done
