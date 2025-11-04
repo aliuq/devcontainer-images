@@ -4,14 +4,26 @@
     "context": "."
   },
   "features": {
-    // "ghcr.io/devcontainers/features/common-utils:2": {
-    //   "configureZshAsDefaultShell": "true"
-    // },
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": "true",
+      "configureZshAsDefaultShell": "true",
+      "installOhMyZsh": "true",
+      "installOhMyZshConfig": "true",
+      "upgradePackages": "true"
+    },
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "latest"
+    },
     // "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     // "ghcr.io/devcontainers/features/github-cli:1": {},
-    // "ghcr.io/aliuq/devcontainer-features/common:0": {
-    //   "installStarship": "true"
-    // }
+    "ghcr.io/aliuq/devcontainer-features/common:0": {
+      "defaultShell": "zsh",
+      "installEza": "true",
+      "installFzf": "true",
+      "installZoxide": "true",
+      "installMise": "true",
+      "installZshPlugins": "true"
+    }
   }
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
