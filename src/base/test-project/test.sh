@@ -2,10 +2,10 @@
 
 set -e
 
-# source dev-container-features-test-lib
 source test-utils.sh
 
-
+# git
+check "git installed" git --version
 # fzf
 check "fzf installed" fzf --version
 # eza

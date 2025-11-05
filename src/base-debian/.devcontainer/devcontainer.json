@@ -11,10 +11,6 @@
       "installOhMyZshConfig": "true",
       "upgradePackages": "true"
     },
-    "ghcr.io/devcontainers/features/git:1": {
-      "version": "latest",
-      "ppa": "true"
-    },
     "ghcr.io/aliuq/devcontainer-features/common:0": {
       "defaultShell": "zsh",
       "installEza": "true",

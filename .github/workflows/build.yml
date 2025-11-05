@@ -2,6 +2,14 @@ name: Build and push images
 
 on:
   workflow_dispatch:
+    inputs:
+      app:
+        description: "The app to build (base)"
+        required: false
+        default: "base"
+        type: choice
+        options:
+          - base
 
 jobs:
   build-and-push:
@@ -13,6 +21,7 @@ jobs:
       matrix:
         app:
           - base
+          - base-debian
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -41,7 +50,11 @@ jobs:
           script: |
             const app = '${{ matrix.app }}'
 
-            const tags = app === 'base' ? 'base,ubuntu' : app
+            const tagMap = {
+              'base': 'base,ubuntu',
+              'base-debian': 'debian'
+            }
+            const tags = tagMap[app] || app
 
             core.setOutput('tags', tags)
 
