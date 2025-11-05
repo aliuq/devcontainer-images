@@ -1,0 +1,29 @@
+{
+  "build": {
+    "dockerfile": "./Dockerfile",
+    "context": "."
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": "true",
+      "configureZshAsDefaultShell": "true",
+      "installOhMyZsh": "true",
+      "installOhMyZshConfig": "true",
+      "upgradePackages": "true"
+    },
+    "ghcr.io/aliuq/devcontainer-features/common:0": {
+      "defaultShell": "zsh",
+      "installEza": "true",
+      "installFzf": "true",
+      "installZoxide": "true",
+      "installMise": "true",
+      "installZshPlugins": "true"
+    }
+  }
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "uname -a",
+  // Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  // "remoteUser": "vscode"
+}

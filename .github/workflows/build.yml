@@ -2,14 +2,6 @@ name: Build and push images
 
 on:
   workflow_dispatch:
-    inputs:
-      app:
-        description: "The app to build (base)"
-        required: false
-        default: "base"
-        type: choice
-        options:
-          - base
 
 jobs:
   build-and-push:
@@ -22,6 +14,7 @@ jobs:
         app:
           - base
           - base-debian
+          - base-alpine
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -52,12 +45,14 @@ jobs:
 
             const tagMap = {
               'base': 'base,ubuntu',
-              'base-debian': 'debian'
+              'base-debian': 'debian',
+              'base-alpine': 'alpine'
             }
             const tags = tagMap[app] || app
 
             const cacheMap = {
-              'base-debian': 'debian'
+              'base-debian': 'debian',
+              'base-alpine': 'alpine'
             }
             const cacheTag = cacheMap[app] || app
 
