@@ -58,7 +58,7 @@
 
 **额外预装工具:**
 
-- **容器工具:** Docker-in-Docker, Docker Compose
+- **容器工具:** Docker-in-Docker, Docker Compose, Python3
 - **开发工具:**
   - shfmt (Shell 格式化)
   - jq (JSON 处理)
@@ -66,7 +66,6 @@
   - Node.js (LTS 版本)
   - Bun, Yarn, pnpm
 - **Python 开发:**
-  - Python 3
   - uv (Python 包管理器)
 - **HTTP 工具:**
   - HTTPie (现代化的 HTTP 客户端)
