@@ -1,0 +1,42 @@
+{
+  "build": {
+    "dockerfile": "./Dockerfile",
+    "context": "."
+  },
+  "features": {
+    // "ghcr.io/devcontainers/features/common-utils": {},
+    "ghcr.io/aliuq/devcontainer-features/common:0": {
+      "installStarship": "true"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/sshd:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "github.copilot",
+        "github.copilot-chat",
+        "streetsidesoftware.code-spell-checker",
+        "davidanson.vscode-markdownlint",
+        "mads-hartmann.bash-ide-vscode",
+        "editorconfig.editorconfig",
+        "github.vscode-pull-request-github",
+        "github.vscode-github-actions",
+        "pkief.material-icon-theme",
+        "zhuangtongfa.material-theme"
+      ],
+      "settings": {
+        "workbench.iconTheme": "material-icon-theme",
+        "workbench.colorTheme": "One Dark Pro Darker",
+        "workbench.preferredDarkColorTheme": "One Dark Pro Darker"
+      }
+    }
+  },
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "mise trust ${containerWorkspaceFolder}"
+  // Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  // "remoteUser": "vscode"
+}
