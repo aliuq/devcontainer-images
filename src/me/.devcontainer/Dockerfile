@@ -16,11 +16,12 @@ RUN set -eux; \
     # Web
     bun@latest node@lts yarn@1 pnpm@latest \
     # Python
-    python@3 uv@latest && \
+    uv@latest && \
+    \
     # Clear cache
     mise cache clear
 
-RUN set -eux; \
+RUN set -eux; export DEBIAN_FRONTEND=noninteractive; \
     # httpie: https://httpie.io/docs/cli/linux
     curl -SsL https://packages.httpie.io/deb/KEY.gpg | sudo gpg --dearmor -o /usr/share/keyrings/httpie.gpg && \
     echo "deb [arch=amd64 signed-by=/usr/share/keyrings/httpie.gpg] https://packages.httpie.io/deb ./" | sudo tee /etc/apt/sources.list.d/httpie.list && \
