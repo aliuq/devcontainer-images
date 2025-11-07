@@ -92,9 +92,7 @@
 ```json
 {
   "name": "My Project",
-  "image": "ghcr.io/aliuq/devcontainer:base",
-  // 或使用功能更全的镜像
-  // "image": "ghcr.io/aliuq/devcontainer:me",
+  "image": "ghcr.io/aliuq/devcontainer:base", // or `aliuq/devcontainer:base`
   "customizations": {
     "vscode": {
       "extensions": [
