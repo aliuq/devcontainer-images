@@ -86,6 +86,10 @@ jobs:
 
       - name: Sync to another registry (docker.io, aliyun ACR)
         uses: actions/github-script@v7
+        env:
+          ACR_REGISTRY: ${{ secrets.ALI_ACR_REGISTRY }}
+          ACR_USERNAME: ${{ secrets.ALI_ACR_USERNAME }}
+          ACR_PASSWORD: ${{ secrets.ALI_ACR_PASSWORD }}
         with:
           script: |
             const inputTags = '${{ steps.prepare.outputs.tags }}';
@@ -105,7 +109,7 @@ jobs:
 
             if (process.env.ACR_REGISTRY && process.env.ACR_USERNAME && process.env.ACR_PASSWORD) {
               for await (const tag of tags) {
-                console.log(`\n(${tag}) Pushing to Docker Hub (registry.cn-hangzhou.aliyuncs.com/aliuq/devcontainer:${tag}) ...`);
+                console.log(`\n(${tag}) Pushing to Aliyun ACR (registry.cn-hangzhou.aliyuncs.com/aliuq/devcontainer:${tag}) ...`);
 
                 await exec.exec('/usr/bin/skopeo', [
                   'copy',
