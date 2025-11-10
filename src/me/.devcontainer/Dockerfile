@@ -7,19 +7,7 @@ RUN set -eux; \
     fi && \
     if ! grep -q "plugins=.*docker-compose" ~/.zshrc; then \
       sed -i "s/^plugins=(\(.*\))/plugins=(\1 docker-compose)/" ~/.zshrc; \
-    fi && \
-    \
-    # Install development dependence via mise
-    mise use -y -g \
-    # Tools
-    shfmt@latest jq@latest \
-    # Web
-    bun@latest node@lts yarn@1 pnpm@latest \
-    # Python
-    uv@latest && \
-    \
-    # Clear cache
-    mise cache clear
+    fi
 
 RUN set -eux; export DEBIAN_FRONTEND=noninteractive; \
     # httpie: https://httpie.io/docs/cli/linux
