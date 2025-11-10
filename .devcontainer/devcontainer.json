@@ -1,0 +1,10 @@
+{
+  "image": "ghcr.io/aliuq/devcontainer:me",
+  "customizations": {},
+  "features": {
+    "ghcr.io/aliuq/devcontainer-features/common:0": {
+      // "MISE_GITHUB_TOKEN": "" // Set this variable if you hit rate limiting issues
+    }
+  },
+  "updateContentCommand": "npm install -g @devcontainers/cli"
+}
