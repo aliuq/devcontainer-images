@@ -77,7 +77,7 @@ jobs:
           # platform: linux/amd64
           platform: linux/amd64,linux/arm64
           subFolder: src/${{ inputs.app }}
-          # cacheFrom: ${{ steps.prepare.outputs.cacheFrom }}
+          cacheFrom: ${{ steps.prepare.outputs.cacheFrom }}
           # push: never
           push: always
         env:
