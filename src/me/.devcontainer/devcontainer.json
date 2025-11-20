@@ -7,7 +7,7 @@
     // "ghcr.io/devcontainers/features/common-utils": {},
     "ghcr.io/aliuq/devcontainer-features/common:0": {
       "installStarship": "true",
-      "misePackages": "shfmt@latest jq@latest node@lts bun yarn@1 pnpm uv@latest"
+      "misePackages": "shfmt@latest jq@latest node@lts bun@latest yarn@1 pnpm@latest uv@latest"
     },
     "ghcr.io/devcontainers/features/python:1": {},
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},

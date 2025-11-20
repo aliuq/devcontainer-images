@@ -120,6 +120,8 @@ devcontainer build --image-name base:local --workspace-folder src/base --no-cach
 BUILDKIT_PROGRESS=plain devcontainer build --image-name base:local --workspace-folder src/base
 # 运行测试
 docker run -it --rm base:local /bin/zsh
+# 使用 vscode 用户进行测试
+docker run -it --rm -u vscode base:local /bin/zsh
 ```
 
 ## 🛠️ 自定义配置
