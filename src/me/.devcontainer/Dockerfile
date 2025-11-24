@@ -2,6 +2,8 @@ FROM ghcr.io/aliuq/devcontainer:base
 
 COPY ./scripts /usr/local/share/
 
+ENV PATH="/root/.bun/bin:${PATH}"
+
 RUN set -eux; export DEBIAN_FRONTEND=noninteractive; \
     # Enable docker and docker-compose plugins for oh-my-zsh
     if ! grep -q "plugins=.*docker" ~/.zshrc; then \
