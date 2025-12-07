@@ -1,155 +1,184 @@
 # DevContainer Images
 
-一套预配置的 DevContainer 镜像集合，基于官方 [devcontainers/images](https://github.com/devcontainers/images) 构建，集成了常用的开发工具和配置。
+[![DevContainer](https://img.shields.io/github/actions/workflow/status/aliuq/devcontainer-images/build.yml?label=Build%20Base%20Image)](./.github/workflows/build.yml)
+[![DevContainer](https://img.shields.io/github/actions/workflow/status/aliuq/devcontainer-images/build-app.yml?label=Build%20App%20Image)](./.github/workflows/build-app.yml)
+[![Pulls](https://img.shields.io/docker/pulls/aliuq/devcontainer?label=Docker%20Pulls)](https://hub.docker.com/r/aliuq/devcontainer)
+[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-aliuq-blue)](https://hub.docker.com/r/aliuq/devcontainer)
+[![阿里云](https://img.shields.io/badge/阿里云-registry.cn--hangzhou.aliyuncs.com-blue)](https://cr.console.aliyun.com/repository/cn-hangzhou/aliuq/devcontainer)
 
-## 📦 镜像列表
+一套预配置的 DevContainer 镜像集合，基于官方 [devcontainers/images](https://github.com/devcontainers/images) 构建，集成了常用的开发工具和配置
 
-### base
+## 使用方式
 
-**基础镜像** - 基于 Ubuntu (noble) 构建，包含基础开发环境。
+- `ghcr.io/aliuq/devcontainer:<tag>` - GitHub Container Registry
+- `aliuq/devcontainer:<tag>` - Docker Hub
+- `registry.cn-hangzhou.aliyuncs.com/aliuq/devcontainer:<tag>` - 阿里云容器镜像服务
 
-- 📍 位置: `src/base`
-- 🐳 镜像: `ghcr.io/aliuq/devcontainer:base`
-- 📖 参考: [devcontainers/base-ubuntu](https://github.com/devcontainers/images/tree/main/src/base-ubuntu)
+快速运行
 
-**预装工具:**
+```bash
+# GitHub Container Registry
+docker run -it --rm ghcr.io/aliuq/devcontainer:base /bin/zsh
 
-- Zsh + Oh My Zsh
-- Git (最新版本)
-- Eza (现代化的 ls 替代品)
-- Fzf (模糊搜索工具)
-- Zoxide (智能目录跳转)
-- Mise (运行时版本管理工具)
-- Zsh 插件集合
+# Docker Hub
+docker run -it --rm aliuq/devcontainer:base /bin/zsh
 
-### base-alpine
+# 阿里云 (推荐国内用户)
+docker run -it --rm registry.cn-hangzhou.aliyuncs.com/aliuq/devcontainer:base /bin/zsh
+```
 
-**Alpine 基础镜像** - 基于 Alpine Linux 构建的轻量级镜像。
+## 镜像列表
 
-- 📍 位置: `src/base-alpine`
-- 📖 参考: [devcontainers/base-alpine](https://github.com/devcontainers/images/tree/main/src/base-alpine)
+| 标签 | 描述 | 基础镜像 | 大小 |
+|------|------|---------|------|
+| [`base`](./src/base) | Ubuntu 基础镜像,功能完整 | `buildpack-deps:noble` | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/aliuq/devcontainer/base?label=) |
+| [`alpine`](./src/base-alpine) | Alpine Linux 轻量级镜像,体积小 | `alpine:3.22` | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/aliuq/devcontainer/alpine?label=) |
+| [`debian`](./src/base-debian) | Debian 稳定版镜像,兼容性好 | `buildpack-deps:trixie` | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/aliuq/devcontainer/debian?label=) |
+| [`me`](./src/me) | 个人定制镜像,包含常用配置 | `ghcr.io/aliuq/devcontainer:base` | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/aliuq/devcontainer/me?label=) |
 
-**预装工具:**
+## 工具列表
 
-- Zsh + Oh My Zsh
-- Eza, Fzf, Zoxide, Mise
-- Zsh 插件集合
+在 [aliuq/devcontainer-features](https://github.com/aliuq/devcontainer-features) 中以可选 feature 形式提供, 支持按需安装:
 
-### base-debian
+- `Zsh`: Shell 环境, 集成了 [Oh-My-Zsh](https://github.com/ohmyzsh/ohmyzsh)
+- `Git`: 版本控制工具
+- [`Eza`](https://github.com/eza-community/eza): 现代化的 `ls` 命令替代品,具有更好的输出格式和颜色
+- [`Fzf`](https://github.com/junegunn/fzf): 强大的命令行模糊查找工具,支持快速搜索和导航
+- [`Zoxide`](https://github.com/ajeetdsouza/zoxide): 智能 `cd` 命令,记住常用目录并快速跳转
+- [`Mise`](https://github.com/jdx/mise): 多语言工具版本管理器,统一管理 Node.js/Python/Ruby 等运行环境
+- [`Starship`](https://github.com/starship/starship): 快速、可定制的跨平台 Shell 提示符
+- [`Httpie`](https://github.com/httpie/cli): 用户友好的 HTTP 客户端,简化 API 调试
+- [`Yazi`](https://github.com/sxyazi/yazi): 快速的终端文件管理器,支持预览和批量操作
+- [`Pnpm Completion`](https://pnpm.io/zh/completion): Pnpm 命令自动补全
 
-**Debian 基础镜像** - 基于 Debian 构建的稳定版本镜像。
-
-- 📍 位置: `src/base-debian`
-- 📖 参考: [devcontainers/base-debian](https://github.com/devcontainers/images/tree/main/src/base-debian)
-
-**预装工具:**
-
-- Zsh + Oh My Zsh
-- Eza, Fzf, Zoxide, Mise
-- Zsh 插件集合
-
-### me
-
-**个人定制镜像** - 基于 base 镜像构建，添加了更多开发工具和配置。
-
-- 📍 位置: `src/me`
-- 🐳 镜像: `ghcr.io/aliuq/devcontainer:me`
-- 📖 基于: `ghcr.io/aliuq/devcontainer:base`
-
-**额外预装工具:**
-
-- **容器工具:** Docker-in-Docker, Docker Compose, Python3
-- **开发工具:**
-  - shfmt (Shell 格式化)
-  - jq (JSON 处理)
-- **Web 开发:**
-  - Node.js (LTS 版本)
-  - Bun, Yarn, pnpm
-- **Python 开发:**
-  - uv (Python 包管理器)
-- **HTTP 工具:**
-  - HTTPie (现代化的 HTTP 客户端)
-- **GitHub CLI**
-- **SSH 服务**
-
-**VS Code 扩展:**
-
-- GitHub Copilot & Copilot Chat
-- Code Spell Checker
-- Markdown Lint
-- Bash IDE
-- EditorConfig
-- GitHub Pull Requests & Actions
-- Material Icon Theme
-- One Dark Pro Theme
-
-## 🚀 快速开始
+## 快速开始
 
 ### 使用预构建镜像
 
-在你的项目中创建 `.devcontainer/devcontainer.json`:
+在项目根目录创建 `.devcontainer/devcontainer.json`:
 
 ```json
 {
   "name": "My Project",
-  "image": "ghcr.io/aliuq/devcontainer:base", // or `aliuq/devcontainer:base`
+  "image": "ghcr.io/aliuq/devcontainer:base",
   "customizations": {
     "vscode": {
       "extensions": [
-        // 添加你需要的扩展
-      ]
+        "github.copilot-chat",
+        "streetsidesoftware.code-spell-checker",
+        "davidanson.vscode-markdownlint",
+        "mads-hartmann.bash-ide-vscode",
+        "editorconfig.editorconfig",
+        "github.vscode-pull-request-github",
+        "github.vscode-github-actions",
+        "pkief.material-icon-theme",
+        "zhuangtongfa.material-theme"
+      ],
+      "settings": {
+        "workbench.iconTheme": "material-icon-theme",
+        "workbench.colorTheme": "One Dark Pro Darker",
+        "workbench.preferredDarkColorTheme": "One Dark Pro Darker"
+      }
+    }
+  },
+  "features": {
+    "ghcr.io/aliuq/devcontainer-features/common:0": {
+      "installStarship": true,
+      "installHttpie": "true",
+      "installYazi": "true",
+      "misePackages": "shfmt@latest,node@lts,yarn@1,pnpm@latest,bun@latest",
+      "zshPlugins": "bun",
+      "pnpmCompletion": "true",
     }
   }
 }
 ```
 
+::: TIP **提示**
+如果在国内访问 GitHub 速度较慢,可以使用阿里云镜像 `registry.cn-hangzhou.aliyuncs.com/aliuq/devcontainer:base`
+:::
+
 ### 本地构建
 
-克隆仓库并构建镜像:
+适用于需要自定义镜像的场景:
 
 ```bash
-# 克隆仓库
+# 1. 克隆仓库
 git clone https://github.com/aliuq/devcontainer-images.git
 cd devcontainer-images
 
-# 构建基础镜像
+# 2. 构建基础镜像
 devcontainer build --image-name base:local --workspace-folder src/base
-# 不使用缓存
+
+# 3. 运行测试
+docker run -it --rm base:local /bin/zsh
+
+# 其他构建选项:
+# 不使用缓存重新构建
 devcontainer build --image-name base:local --workspace-folder src/base --no-cache
+
 # 查看详细构建日志
 BUILDKIT_PROGRESS=plain devcontainer build --image-name base:local --workspace-folder src/base
-# 运行测试
-docker run -it --rm base:local /bin/zsh
-# 使用 vscode 用户进行测试
+
+# 使用 vscode 用户测试 (模拟实际使用环境)
 docker run -it --rm -u vscode base:local /bin/zsh
 ```
 
-## 🛠️ 自定义配置
+## 自定义配置
 
-### 添加额外的 DevContainer Features
+### 添加开发语言环境
 
-在 `devcontainer.json` 中添加更多 features:
+使用官方 Features 添加所需的开发环境:
 
 ```json
 {
   "image": "ghcr.io/aliuq/devcontainer:base",
   "features": {
-    "ghcr.io/devcontainers/features/node:1": {},
-    "ghcr.io/devcontainers/features/python:1": {}
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    },
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   }
 }
 ```
 
-### 使用自定义脚本
+### 容器生命周期钩子
+
+在容器不同阶段执行自定义脚本:
 
 ```json
 {
   "image": "ghcr.io/aliuq/devcontainer:base",
-  "postCreateCommand": "npm install && npm run setup"
+  "onCreateCommand": "echo 'Container created!'",
+  "postCreateCommand": "npm install",
+  "postStartCommand": "git config --global core.editor 'code --wait'",
+  "postAttachCommand": "echo 'Welcome to DevContainer!'"
 }
 ```
 
-## 📝 开发说明
+### 环境变量和端口转发
+
+```json
+{
+  "image": "ghcr.io/aliuq/devcontainer:base",
+  "containerEnv": {
+    "NODE_ENV": "development",
+    "API_URL": "http://localhost:3000"
+  },
+  "forwardPorts": [3000, 5173],
+  "portsAttributes": {
+    "3000": {
+      "label": "Backend",
+      "onAutoForward": "notify"
+    }
+  }
+}
+```
+
+## 开发说明
 
 ### 项目结构
 
