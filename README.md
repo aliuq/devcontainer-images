@@ -38,8 +38,8 @@ docker run -it --rm registry.cn-hangzhou.aliyuncs.com/aliuq/devcontainer:base /b
 
 在 [aliuq/devcontainer-features](https://github.com/aliuq/devcontainer-features) 中以可选 feature 形式提供, 支持按需安装:
 
-- `Zsh`: Shell 环境, 集成了 [Oh-My-Zsh](https://github.com/ohmyzsh/ohmyzsh)
-- `Git`: 版本控制工具
+- [`Zsh`](https://github.com/devcontainers/features/tree/main/src/common-utils): Shell 环境, 集成了 [Oh-My-Zsh](https://github.com/ohmyzsh/ohmyzsh)
+- [`Git`](https://github.com/devcontainers/features/tree/main/src/git): 版本控制工具
 - [`Eza`](https://github.com/eza-community/eza): 现代化的 `ls` 命令替代品,具有更好的输出格式和颜色
 - [`Fzf`](https://github.com/junegunn/fzf): 强大的命令行模糊查找工具,支持快速搜索和导航
 - [`Zoxide`](https://github.com/ajeetdsouza/zoxide): 智能 `cd` 命令,记住常用目录并快速跳转
@@ -93,7 +93,8 @@ docker run -it --rm registry.cn-hangzhou.aliyuncs.com/aliuq/devcontainer:base /b
 ```
 
 > [!NOTE]
-> 如果在国内访问 GitHub 速度较慢,可以使用阿里云镜像 `registry.cn-hangzhou.aliyuncs.com/aliuq/devcontainer:base`
+> 如果在国内访问 GitHub 速度较慢,可以使用阿里云镜像
+> `registry.cn-hangzhou.aliyuncs.com/aliuq/devcontainer:base`
 
 ### 本地构建
 
