@@ -1,10 +1,8 @@
 # DevContainer Images
 
-[![DevContainer](https://img.shields.io/github/actions/workflow/status/aliuq/devcontainer-images/build.yml?label=Build%20Base%20Image)](./.github/workflows/build.yml)
-[![DevContainer](https://img.shields.io/github/actions/workflow/status/aliuq/devcontainer-images/build-app.yml?label=Build%20App%20Image)](./.github/workflows/build-app.yml)
+[![DevContainer](https://img.shields.io/github/actions/workflow/status/aliuq/devcontainer-images/build.yml?label=Build)](./.github/workflows/build.yml)
+[![DevContainer](https://img.shields.io/github/actions/workflow/status/aliuq/devcontainer-images/build-app.yml?label=Build%20App)](./.github/workflows/build-app.yml)
 [![Pulls](https://img.shields.io/docker/pulls/aliuq/devcontainer?label=Docker%20Pulls)](https://hub.docker.com/r/aliuq/devcontainer)
-[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-aliuq-blue)](https://hub.docker.com/r/aliuq/devcontainer)
-[![阿里云](https://img.shields.io/badge/阿里云-registry.cn--hangzhou.aliyuncs.com-blue)](https://cr.console.aliyun.com/repository/cn-hangzhou/aliuq/devcontainer)
 
 一套预配置的 DevContainer 镜像集合，基于官方 [devcontainers/images](https://github.com/devcontainers/images) 构建，集成了常用的开发工具和配置
 
