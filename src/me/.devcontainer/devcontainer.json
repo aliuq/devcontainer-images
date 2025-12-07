@@ -7,7 +7,11 @@
     // "ghcr.io/devcontainers/features/common-utils": {},
     "ghcr.io/aliuq/devcontainer-features/common:0": {
       "installStarship": "true",
-      "misePackages": "shfmt@latest jq@latest node@lts bun@latest yarn@1 pnpm@latest uv@latest"
+      "installHttpie": "true",
+      "installYazi": "true",
+      "pnpmCompletion": "true",
+      "misePackages": "shfmt@latest jq@latest node@lts bun@latest yarn@1 pnpm@latest uv@latest neovim@latest",
+      "zshPlugins": "docker docker-compose bun uv gh"
     },
     "ghcr.io/devcontainers/features/python:1": {},
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
@@ -17,7 +21,6 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "github.copilot",
         "github.copilot-chat",
         "streetsidesoftware.code-spell-checker",
         "davidanson.vscode-markdownlint",
