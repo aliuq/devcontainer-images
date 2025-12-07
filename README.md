@@ -94,6 +94,7 @@ docker run -it --rm registry.cn-hangzhou.aliyuncs.com/aliuq/devcontainer:base /b
 
 > [!NOTE]
 > 如果在国内访问 GitHub 速度较慢,可以使用阿里云镜像
+>
 > `registry.cn-hangzhou.aliyuncs.com/aliuq/devcontainer:base`
 
 ### 本地构建
