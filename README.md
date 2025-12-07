@@ -8,9 +8,9 @@
 
 ## 使用方式
 
-- `ghcr.io/aliuq/devcontainer:<tag>` - GitHub Container Registry
-- `aliuq/devcontainer:<tag>` - Docker Hub
-- `registry.cn-hangzhou.aliyuncs.com/aliuq/devcontainer:<tag>` - 阿里云容器镜像服务
+1. `ghcr.io/aliuq/devcontainer:<tag>`: GitHub Container Registry
+2. `aliuq/devcontainer:<tag>`: Docker Hub
+3. `registry.cn-hangzhou.aliyuncs.com/aliuq/devcontainer:<tag>`: 阿里云容器镜像服务
 
 快速运行
 
@@ -29,10 +29,10 @@ docker run -it --rm registry.cn-hangzhou.aliyuncs.com/aliuq/devcontainer:base /b
 
 | 标签 | 描述 | 基础镜像 | 大小 |
 |------|------|---------|------|
-| [`base`](./src/base) | Ubuntu 基础镜像,功能完整 | `buildpack-deps:noble` | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/aliuq/devcontainer/base?label=) |
-| [`alpine`](./src/base-alpine) | Alpine Linux 轻量级镜像,体积小 | `alpine:3.22` | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/aliuq/devcontainer/alpine?label=) |
-| [`debian`](./src/base-debian) | Debian 稳定版镜像,兼容性好 | `buildpack-deps:trixie` | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/aliuq/devcontainer/debian?label=) |
-| [`me`](./src/me) | 个人定制镜像,包含常用配置 | `ghcr.io/aliuq/devcontainer:base` | ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/aliuq/devcontainer/me?label=) |
+| [`base`](./src/base) | Ubuntu 基础镜像,功能完整 | `buildpack-deps:noble` | ![Size](https://img.shields.io/docker/image-size/aliuq/devcontainer/base?label=) |
+| [`alpine`](./src/base-alpine) | Alpine Linux 轻量级镜像,体积小 | `alpine:3.22` | ![Size](https://img.shields.io/docker/image-size/aliuq/devcontainer/alpine?label=) |
+| [`debian`](./src/base-debian) | Debian 稳定版镜像,兼容性好 | `buildpack-deps:trixie` | ![Size](https://img.shields.io/docker/image-size/aliuq/devcontainer/debian?label=) |
+| [`me`](./src/me) | 个人定制镜像,包含常用配置 | `ghcr.io/aliuq/devcontainer:base` | ![Size](https://img.shields.io/docker/image-size/aliuq/devcontainer/me?label=) |
 
 ## 工具列表
 
@@ -192,7 +192,7 @@ devcontainer-images/
 └── README.md
 ```
 
-## 🔗 相关链接
+## 相关链接
 
 - [DevContainers 官方文档](https://containers.dev/)
 - [DevContainer Images](https://github.com/devcontainers/images)
