@@ -18,6 +18,9 @@
       "installZoxide": "true",
       "installMise": "true"
     }
+  },
+  "containerEnv": {
+    "MISE_TRUSTED_CONFIG_PATHS": "${containerWorkspaceFolder:-.}"
   }
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
