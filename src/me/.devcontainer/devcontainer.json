@@ -29,7 +29,8 @@
         "github.vscode-pull-request-github",
         "github.vscode-github-actions",
         "pkief.material-icon-theme",
-        "zhuangtongfa.material-theme"
+        "zhuangtongfa.material-theme",
+        "tamasfe.even-better-toml"
       ],
       "settings": {
         "workbench.iconTheme": "material-icon-theme",
