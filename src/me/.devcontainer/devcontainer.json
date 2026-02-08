@@ -35,7 +35,17 @@
       "settings": {
         "workbench.iconTheme": "material-icon-theme",
         "workbench.colorTheme": "One Dark Pro Darker",
-        "workbench.preferredDarkColorTheme": "One Dark Pro Darker"
+        "workbench.preferredDarkColorTheme": "One Dark Pro Darker",
+        "cSpell.ignorePaths": [
+          "package-lock.json",
+          "node_modules",
+          "vscode-extension",
+          ".git/{info,lfs,logs,refs,objects}/**",
+          ".git/{index,*refs,*HEAD}",
+          ".vscode",
+          ".vscode-insiders",
+          "devcontainer.json"
+        ]
       }
     }
   },
