@@ -50,11 +50,7 @@
     }
   },
   "containerEnv": {
-    "MISE_TRUSTED_CONFIG_PATHS": "${containerWorkspaceFolder:-.}",
-    // GitHub API rate limiting
-    // ref: https://mise.jdx.dev/getting-started.html#github-api-rate-limiting
-    "MISE_GITHUB_TOKEN": "${localEnv:MISE_GITHUB_TOKEN}",
-    "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"
+    "MISE_TRUSTED_CONFIG_PATHS": "${containerWorkspaceFolder:-.}"
   }
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
