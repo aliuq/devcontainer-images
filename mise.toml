@@ -1,0 +1,61 @@
+[tasks.install-cli]
+description = "Install the devcontainer CLI globally"
+usage = '''
+arg "<package_manager>" help="Package manager to use for installation" {
+  choices "bun" "npm" "pnpm" "yarn"
+  default "bun"
+}
+flag "-f --force" help="Force installation even if devcontainer CLI is already installed"
+'''
+run = '''
+echo "📦 Installing devcontainer CLI globally using ${usage_package_manager?}..."
+if command -v devcontainer >/dev/null 2>&1; then
+  echo "✅ devcontainer CLI is already installed"
+  if [ "${usage_force}" = "true" ]; then
+    echo "🔄 Reinstalling...\n"
+    ${usage_package_manager?} install -g @devcontainers/cli
+  fi
+else
+  echo "⚠️  devcontainer CLI not found, attempting to install with ${usage_package_manager?}...\n"
+  ${usage_package_manager?} install -g @devcontainers/cli
+fi
+'''
+
+
+[tasks.build]
+description = "Build the devcontainer images locally"
+alias = "b"
+usage = '''
+arg "<image>" help="Name of the image to build on src/ directory" {
+  default "base"
+}
+complete "image" run="ls -1 src/ | grep -v \"^$\""
+
+flag "-t --tag" help="Tag to use for the built image (default: local)"
+flag "-h" count=#true help="Show options and usage for command `devcontainer build`"
+flag "--no-cache" help="Build the image without using cache"
+flag "--plain" help="Set BUILDKIT_PROGRESS to plain for better building logs"
+flag "-s --other-args <other_args>" help="Other arguments to pass to the devcontainer build command (e.g., --version, --log-level, etc.)"
+'''
+run = '''
+#!/usr/bin/env bash
+
+[[ ${usage_h} = 2 ]] && devcontainer build --help && exit 0
+echo "🚀 Building image ${usage_image?}..."
+[[ "${usage_plain}" = "true" ]] && export BUILDKIT_PROGRESS=plain
+cmd="devcontainer build --workspace-folder src/${usage_image?} --image-name ${usage_image?}:${usage_tag:-local}"
+[[ "${usage_no_cache}" = "true" ]] && cmd+=" --no-cache"
+[[ -n "${usage_other_args}" ]] && cmd+=" ${usage_other_args}"
+echo -e "💡 Running command: $cmd\n"
+eval "$cmd"
+'''
+
+
+[tasks.clean]
+description = "Clean up dangling devcontainer images"
+run = '''
+echo "🧹 Cleaning up dangling Docker images and builders...\n"
+docker image prune -af
+echo "\n"
+docker builder prune -af
+'''
