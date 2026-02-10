@@ -85,8 +85,6 @@ jobs:
           noCache: true
           # push: never
           push: always
-        env:
-          MISE_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Sync to another registry (docker.io)
         uses: actions/github-script@v7
