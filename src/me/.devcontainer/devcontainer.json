@@ -4,13 +4,12 @@
     "context": "."
   },
   "features": {
-    // "ghcr.io/devcontainers/features/common-utils": {},
     "ghcr.io/aliuq/devcontainer-features/common:0": {
       "installStarship": "true",
       "installHttpie": "true",
       "installYazi": "true",
       "pnpmCompletion": "true",
-      "misePackages": "shfmt@latest jq@latest node@lts bun@latest yarn@1 pnpm@latest uv@latest neovim@latest",
+      "misePackages": "shfmt jq node@lts bun yarn@1 pnpm uv neovim lazydocker",
       "zshPlugins": "docker docker-compose bun uv gh"
     },
     "ghcr.io/devcontainers/features/python:1": {},
@@ -32,7 +31,18 @@
         "zhuangtongfa.material-theme",
         "tamasfe.even-better-toml",
         "docsmsft.docs-yaml",
-        "davidanson.vscode-markdownlint"
+        "davidanson.vscode-markdownlint",
+        // Web
+        "vue.volar",
+        "bradlc.vscode-tailwindcss",
+        "dbaeumer.vscode-eslint",
+        "biomejs.biome",
+        "antfu.goto-alias",
+        "antfu.unocss",
+        "lokalise.i18n-ally",
+        "antfu.iconify",
+        "yoavbls.pretty-ts-errors",
+        "usernamehw.errorlens"
       ],
       "settings": {
         "workbench.iconTheme": "material-icon-theme",
