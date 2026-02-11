@@ -30,7 +30,9 @@
         "github.vscode-github-actions",
         "pkief.material-icon-theme",
         "zhuangtongfa.material-theme",
-        "tamasfe.even-better-toml"
+        "tamasfe.even-better-toml",
+        "docsmsft.docs-yaml",
+        "davidanson.vscode-markdownlint"
       ],
       "settings": {
         "workbench.iconTheme": "material-icon-theme",
