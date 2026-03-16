@@ -18,5 +18,10 @@
     ".vscode",
     ".vscode-insiders",
     "devcontainer.json"
+  ],
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "file": ".github/commit-instructions.md"
+    }
   ]
 }
