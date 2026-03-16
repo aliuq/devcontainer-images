@@ -31,7 +31,7 @@
         "zhuangtongfa.material-theme",
         "tamasfe.even-better-toml",
         "docsmsft.docs-yaml",
-        "davidanson.vscode-markdownlint",
+        "redhat.vscode-yaml",
         // Web
         "vue.volar",
         "bradlc.vscode-tailwindcss",
