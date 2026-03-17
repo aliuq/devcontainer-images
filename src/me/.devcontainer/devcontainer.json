@@ -32,6 +32,7 @@
         "tamasfe.even-better-toml",
         "docsmsft.docs-yaml",
         "redhat.vscode-yaml",
+        "ms-azuretools.vscode-containers",
         // Web
         "vue.volar",
         "bradlc.vscode-tailwindcss",

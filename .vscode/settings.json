@@ -24,5 +24,8 @@
     {
       "file": ".github/commit-instructions.md"
     }
-  ]
+  ],
+  "yaml.schemas": {
+    "https://www.schemastore.org/github-workflow.json": "file:///workspaces/devcontainer-images/.github/workflows/reusable-build-image.yml"
+  }
 }
