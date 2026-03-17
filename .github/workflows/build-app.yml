@@ -20,15 +20,7 @@ concurrency:
 
 jobs:
   build-and-push:
-    strategy:
-      matrix:
-        app:
-          - base
-          - base-debian
-          - base-alpine
-          - me
-    if: ${{ matrix.app == inputs.app }}
     uses: ./.github/workflows/reusable-build-image.yml
     with:
-      app: ${{ matrix.app }}
+      app: ${{ inputs.app }}
     secrets: inherit
