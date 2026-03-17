@@ -7,6 +7,10 @@ concurrency:
   group: build-basic-images
   cancel-in-progress: true
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build-and-push:
     strategy:
