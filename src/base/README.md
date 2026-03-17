@@ -1,3 +1,11 @@
-# base
+# base-ubuntu
 
-基于 <https://github.com/devcontainers/images/tree/main/src/base-ubuntu> 的 devcontainer 镜像，添加了一些常用工具和配置
+## Dockerfile
+
+reference the official [Dockerfile](https://github.com/devcontainers/images/blob/main/src/base-ubuntu/.devcontainer/Dockerfile) for the base image.
+
+## Features
+
+1. [devcontainers/features/common-utils:2](https://github.com/devcontainers/features/tree/main/src/common-utils)
+2. [devcontainers/features/git:1](https://github.com/devcontainers/features/tree/main/src/git)
+3. [aliuq/devcontainer-features/common:0](https://github.com/aliuq/devcontainer-features)

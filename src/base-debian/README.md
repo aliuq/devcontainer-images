@@ -6,5 +6,6 @@ reference the official [Dockerfile](https://github.com/devcontainers/images/blob
 
 ## Features
 
-1. [devcontainers/features/common-utils](https://github.com/devcontainers/features/tree/main/src/common-utils)
-2. [aliuq/devcontainer-features/common](https://github.com/aliuq/devcontainer-features)
+1. [devcontainers/features/common-utils:2](https://github.com/devcontainers/features/tree/main/src/common-utils)
+2. [devcontainers/features/git:1](https://github.com/devcontainers/features/tree/main/src/git)
+3. [aliuq/devcontainer-features/common:0](https://github.com/aliuq/devcontainer-features)
