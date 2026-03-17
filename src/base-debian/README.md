@@ -1,3 +1,10 @@
 # base-debian
 
-基于 <https://github.com/devcontainers/images/tree/main/src/base-debian> 的 devcontainer 镜像，添加了一些常用工具和配置
+## Dockerfile
+
+reference the official [Dockerfile](https://github.com/devcontainers/images/blob/main/src/base-debian/.devcontainer/Dockerfile) for the base image.
+
+## Features
+
+1. [devcontainers/features/common-utils](https://github.com/devcontainers/features/tree/main/src/common-utils)
+2. [aliuq/devcontainer-features/common](https://github.com/aliuq/devcontainer-features)
