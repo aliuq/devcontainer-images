@@ -1,14 +1,17 @@
-name: Build and push image (single app)
+name: Build Single App Image
 
 on:
   workflow_dispatch:
     inputs:
       app:
-        description: "Which app to build (base, base-debian, base-alpine, all)"
+        description: "Which app to build"
         required: true
         type: choice
         default: me
         options:
+          - base
+          - base-debian
+          - base-alpine
           - me
 
 concurrency:
@@ -17,107 +20,15 @@ concurrency:
 
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-        with:
-          use: true
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Login to Aliyun ACR
-        uses: docker/login-action@v3
-        if: ${{ env.ACR_REGISTRY && env.ACR_USERNAME && env.ACR_PASSWORD }}
-        env:
-          ACR_REGISTRY: ${{ secrets.ALI_ACR_REGISTRY }}
-          ACR_USERNAME: ${{ secrets.ALI_ACR_USERNAME }}
-          ACR_PASSWORD: ${{ secrets.ALI_ACR_PASSWORD }}
-        with:
-          registry: ${{ secrets.ALI_ACR_REGISTRY }}
-          username: ${{ secrets.ALI_ACR_USERNAME }}
-          password: ${{ secrets.ALI_ACR_PASSWORD }}
-
-      - name: Prepare variables
-        id: prepare
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const app = '${{ inputs.app }}'
-
-            const tagMap = {
-              'me': 'me,aliuq',
-            }
-            const tags = tagMap[app] || app
-
-            const cacheMap = {
-              'me': 'me',
-            }
-            const cacheTag = cacheMap[app] || app
-
-            core.setOutput('tags', tags)
-            core.setOutput('cacheFrom', `ghcr.io/aliuq/devcontainer:${cacheTag}`)
-
-      - name: Build & Push
-        uses: devcontainers/ci@v0.3
-        with:
-          imageName: ghcr.io/aliuq/devcontainer
-          imageTag: ${{ steps.prepare.outputs.tags }}
-          # platform: linux/amd64
-          platform: linux/amd64,linux/arm64
-          subFolder: src/${{ inputs.app }}
-          # cacheFrom: ${{ steps.prepare.outputs.cacheFrom }}
-          noCache: true
-          # push: never
-          push: always
-
-      - name: Sync to another registry (docker.io)
-        uses: actions/github-script@v7
-        env:
-          ACR_REGISTRY: ${{ secrets.ALI_ACR_REGISTRY }}
-          ACR_USERNAME: ${{ secrets.ALI_ACR_USERNAME }}
-          ACR_PASSWORD: ${{ secrets.ALI_ACR_PASSWORD }}
-        with:
-          script: |
-            const inputTags = '${{ steps.prepare.outputs.tags }}';
-
-            const tags = inputTags?.split(',');
-
-            for await (const tag of tags) {
-              console.log(`\n(${tag}) Pushing to Docker Hub (docker.io/aliuq/devcontainer:${tag}) ...`);
-
-              await exec.exec('/usr/bin/skopeo', [
-                'copy',
-                '--all',
-                `oci-archive:/tmp/output.tar:${tag}`,
-                `docker://docker.io/aliuq/devcontainer:${tag}`
-              ]);
-            }
-
-            if (process.env.ACR_REGISTRY && process.env.ACR_USERNAME && process.env.ACR_PASSWORD) {
-              for await (const tag of tags) {
-                console.log(`\n(${tag}) Pushing to Aliyun ACR (registry.cn-hangzhou.aliyuncs.com/aliuq/devcontainer:${tag}) ...`);
-
-                await exec.exec('/usr/bin/skopeo', [
-                  'copy',
-                  '--all',
-                  `oci-archive:/tmp/output.tar:${tag}`,
-                  `docker://registry.cn-hangzhou.aliyuncs.com/aliuq/devcontainer:${tag}`
-                ]);
-              }
-            }
+    strategy:
+      matrix:
+        app:
+          - base
+          - base-debian
+          - base-alpine
+          - me
+    if: ${{ matrix.app == inputs.app }}
+    uses: ./.github/workflows/reusable-build-image.yml
+    with:
+      app: ${{ matrix.app }}
+    secrets: inherit
