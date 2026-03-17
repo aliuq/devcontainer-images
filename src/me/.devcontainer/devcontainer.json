@@ -58,7 +58,10 @@
           ".vscode",
           ".vscode-insiders",
           "devcontainer.json"
-        ]
+        ],
+        "files.associations": {
+          "**/.github/workflows/*.{yml,yaml}": "github-actions-workflow"
+        }
       }
     }
   },
