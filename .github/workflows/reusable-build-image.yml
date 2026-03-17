@@ -9,7 +9,8 @@ on:
         type: string
 
 jobs:
-  build-and-push:
+  build:
+    name: Build ${{ inputs.app }} Image
     runs-on: ubuntu-latest
     permissions:
       contents: read
