@@ -31,7 +31,7 @@ arg "<image>" help="Name of the image to build on src/ directory" {
 }
 complete "image" run="ls -1 src/ | grep -v \"^$\""
 
-flag "-t --tag" help="Tag to use for the built image (default: local)"
+flag "-t --tag <tag>" help="Tag to use for the built image (default: local)"
 flag "-h" count=#true help="Show options and usage for command `devcontainer build`"
 flag "--no-cache" help="Build the image without using cache"
 flag "--plain" help="Set BUILDKIT_PROGRESS to plain for better building logs"

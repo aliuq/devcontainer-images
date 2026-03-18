@@ -9,7 +9,7 @@
       "installHttpie": "true",
       "installYazi": "true",
       "pnpmCompletion": "true",
-      "misePackages": "shfmt jq node@lts bun yarn@1 pnpm uv neovim lazydocker",
+      "misePackages": "shfmt jq rg node@lts bun yarn@1 pnpm uv neovim lazydocker",
       "zshPlugins": "docker docker-compose bun uv gh"
     },
     "ghcr.io/devcontainers/features/python:1": {},
