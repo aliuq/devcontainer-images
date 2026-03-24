@@ -7,11 +7,12 @@ on:
         description: "Which app to build"
         required: true
         type: choice
-        default: me
+        default: dev
         options:
           - base
           - base-debian
           - base-alpine
+          - dev
           - me
 
 concurrency:

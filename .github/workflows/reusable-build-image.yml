@@ -55,10 +55,11 @@ jobs:
             const app = '${{ inputs.app }}';
 
             const tagMap = {
-              base: 'base,ubuntu',
+              'base': 'base,ubuntu',
               'base-debian': 'debian',
               'base-alpine': 'alpine',
-              me: 'me,aliuq'
+              'dev': 'dev',
+              'me': 'me,aliuq',
             };
 
             core.setOutput('tags', tagMap[app] || app);
