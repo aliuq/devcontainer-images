@@ -5,35 +5,12 @@
   },
   "features": {
     "ghcr.io/aliuq/devcontainer-features/common:0": {
-      "installStarship": "true",
-      "installHttpie": "true",
-      "installYazi": "true",
-      "pnpmCompletion": "true",
-      "misePackages": "shfmt jq rg node@lts bun yarn@1 pnpm uv neovim lazydocker",
-      "zshPlugins": "docker docker-compose bun uv gh"
-    },
-    "ghcr.io/devcontainers/features/python:1": {},
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/devcontainers/features/sshd:1": {}
+      "zshPlugins": "starship"
+    }
   },
   "customizations": {
     "vscode": {
       "extensions": [
-        "github.copilot-chat",
-        "streetsidesoftware.code-spell-checker",
-        "davidanson.vscode-markdownlint",
-        "mads-hartmann.bash-ide-vscode",
-        "editorconfig.editorconfig",
-        "github.vscode-pull-request-github",
-        "github.vscode-github-actions",
-        "pkief.material-icon-theme",
-        "zhuangtongfa.material-theme",
-        "tamasfe.even-better-toml",
-        "docsmsft.docs-yaml",
-        "redhat.vscode-yaml",
-        "ms-azuretools.vscode-containers",
-        // Web
         "vue.volar",
         "bradlc.vscode-tailwindcss",
         "dbaeumer.vscode-eslint",
@@ -42,27 +19,8 @@
         "antfu.unocss",
         "lokalise.i18n-ally",
         "antfu.iconify",
-        "yoavbls.pretty-ts-errors",
-        "usernamehw.errorlens"
-      ],
-      "settings": {
-        "workbench.iconTheme": "material-icon-theme",
-        "workbench.colorTheme": "One Dark Pro Darker",
-        "workbench.preferredDarkColorTheme": "One Dark Pro Darker",
-        "cSpell.ignorePaths": [
-          "package-lock.json",
-          "node_modules",
-          "vscode-extension",
-          ".git/{info,lfs,logs,refs,objects}/**",
-          ".git/{index,*refs,*HEAD}",
-          ".vscode",
-          ".vscode-insiders",
-          "devcontainer.json"
-        ],
-        "files.associations": {
-          "**/.github/workflows/*.{yml,yaml}": "github-actions-workflow"
-        }
-      }
+        "yoavbls.pretty-ts-errors"
+      ]
     }
   },
   "containerEnv": {

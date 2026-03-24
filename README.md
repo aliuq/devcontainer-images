@@ -8,6 +8,7 @@
 ![base](https://shields.xod.cc/docker/image-size/aliuq/devcontainer/base?label=base)
 ![alpine](https://shields.xod.cc/docker/image-size/aliuq/devcontainer/alpine?label=alpine)
 ![debian](https://shields.xod.cc/docker/image-size/aliuq/devcontainer/debian?label=debian)
+![dev](https://shields.xod.cc/docker/image-size/aliuq/devcontainer/dev?label=dev)
 ![me](https://shields.xod.cc/docker/image-size/aliuq/devcontainer/me?label=me)
 
 **Minimal, maintained DevContainer images for development and CI.**
@@ -54,6 +55,7 @@ docker run -it --rm base:local /bin/zsh
 - `devcontainer:base` — Ubuntu-based image
 - `devcontainer:alpine` — Alpine image
 - `devcontainer:debian` — Debian image
+- `devcontainer:dev` — development image
 - `devcontainer:me` — personal image
 
 ---
