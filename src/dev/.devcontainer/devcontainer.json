@@ -50,6 +50,7 @@
           "devcontainer.json",
           ".*/skills/**"
         ],
+        "scm.defaultViewMode": "tree",
         "files.associations": {
           "**/.github/workflows/*.{yml,yaml}": "github-actions-workflow"
         },
