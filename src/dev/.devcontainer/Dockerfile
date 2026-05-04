@@ -7,5 +7,7 @@ ENV PNPM_HOME="${PNPM_HOME}" \
 RUN set -eux; export DEBIAN_FRONTEND=noninteractive; \
     sudo apt-get update && sudo apt-get upgrade -y && \
     sudo apt-get install -y --no-install-recommends \
-    vim && \
+    vim \
+    libatomic1 \
+    libstdc++6 && \
     rm -rf /var/lib/apt/lists/*
