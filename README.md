@@ -20,6 +20,7 @@ Support registries:
 - `ghcr.io/aliuq/devcontainer:<tag>`
 - `aliuq/devcontainer:<tag>`
 - `registry.cn-hangzhou.aliyuncs.com/aliuq/devcontainer:<tag>`
+> Aliyun ACR publishing is temporarily paused. The workflow currently publishes to GHCR and Docker Hub only.
 
 Run a container:
 
