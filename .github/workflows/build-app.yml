@@ -1,4 +1,5 @@
 name: Build Single App Image
+run-name: Build ${{ inputs.app }} Image
 
 on:
   workflow_dispatch:
